@@ -1,0 +1,45 @@
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center"><h1 class="display-4">Your Cart</h1></div>
+                <br/>
+                <div class="list-group">
+                  {{#each games}}
+                    <div class="list-group-item">
+                        <a type="button" class="btn btn-outline-danger btn-lg" href="/cart/remove/{{this._id}}">X</a>
+                        <div class="media col-3">
+                            <figure class="pull-left">
+                                <a href="#">
+                                    <img class="card-image-top img-fluid img-thumbnail"
+                                         onerror="this.src='https://www.weightwatchers.com/sites/all/themes/custom/wwvs_bts/assets/images/pl/fpo_16x9.png';"
+                                         src="{{this.imageUrl}}"></a>
+                            </figure>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#"><h4 class="list-group-item-heading"> {{this.title}} </h4></a>
+                            <p class="list-group-item-text"> {{this.description}}</p>
+                        </div>
+                        <div class="col-md-2 text-center mr-auto">
+                            <h2> {{this.price}}&euro; </h2>
+                        </div>
+                    </div>
+                  {{/each}}
+
+                <br/>
+
+                <div class="col-8 offset-2 my-3 text-center">
+                    <h1><strong>Total Price - </strong> {{totalPrice}} &euro;</h1>
+                </div>
+
+                <div class="col-8 offset-2 my-3">
+                    <form action="/game/order" method="post" id="new-game-form">
+                        <input type="submit" id="btn-order" class="btn btn-success btn-lg btn-block"
+                               value="Order"/>
+                    </form>
+                </div>
+                <br/>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,37 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1 class="display-3">{{game.title}}</h1>
+        <br/>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{game.trailer}}" frameborder="0" allowfullscreen></iframe>
+
+        <br/>
+        <br/>
+
+        <p>{{game.description}}</p>
+
+        <p>
+          <strong>Price</strong> - {{game.price}}&euro;</p>
+        <p>
+          <strong>Size</strong> - {{game.size}} GB</p>
+        <p>
+          <strong>Release Date</strong> - {{game.dateAsStr}}</p>
+
+        <a class="btn btn-outline-primary" name="delete" href="/">Back</a>
+
+        {{#if isAdmin}}
+          <a class="btn btn-warning" name="edit" href="/admin/edit/{{game._id}}">Edit</a>
+          <a class="btn btn-danger" name="delete" href="/admin/delete/{{game._id}}">Delete</a>
+        {{/if}}
+
+        <a class="btn btn-primary" name="buy" href="/game/buy/{{game._id}}">Buy</a>
+
+        <br/>
+        <br/>
+
+      </div>
+    </div>
+  </div>
+</main>
